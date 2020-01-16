@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { npm_package_name: Title, npm_package_description: Description, PORT } = process.env
+const { npm_package_name: Title, npm_package_description: Description, PORT, HOST } = process.env
 
 export default {
   mode: 'universal',
@@ -23,12 +23,18 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/bulma',
     '@nuxtjs/axios',
-    // '@nuxtjs/pwa',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/bulma',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/proxy'
+    // '@nuxtjs/pwa'
   ],
   axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api-characters/': { target: 'https://rickandmortyapi.com/api/character/', pathRewrite: { '^/api-characters/': '' } },
+    '/api-episodes/': { target: 'https://rickandmortyapi.com/api/episode/', pathRewrite: { '^/api-episodes/': '' } }
   },
   build: {
     postcss: {
@@ -42,7 +48,8 @@ export default {
     }
   },
   server: {
-    port: PORT || 8010
+    port: PORT || 8010,
+    host: HOST || 'localhost'
   },
   router: {
     middleware: ['useragent']

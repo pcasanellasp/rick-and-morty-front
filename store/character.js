@@ -29,7 +29,7 @@ export const getters = {
 export const actions = {
   async get ({ commit, state }) {
     commit('loading', true)
-    const { data, status } = await this.$axios.get('https://rickandmortyapi.com/api/character', {
+    const { data, status } = await this.$axios.get('/api-characters/', {
       params: {
         ...state.filters,
         page: state.page
@@ -42,7 +42,7 @@ export const actions = {
     commit('loading', false)
   },
   async show ({ commit }, id) {
-    const { data, status } = await this.$axios.get(`https://rickandmortyapi.com/api/character/${id}`)
+    const { data, status } = await this.$axios.get(`/api-characters/${id}`)
 
     if (status === 200) {
       const episodes = []
@@ -50,7 +50,7 @@ export const actions = {
         episodes.push(episode.replace('https://rickandmortyapi.com/api/episode/', ''))
       }
 
-      const { data: episodesData, status: episodesStatus } = await this.$axios.get(`https://rickandmortyapi.com/api/episode/${episodes.join()}`)
+      const { data: episodesData, status: episodesStatus } = await this.$axios.get(`/api-episodes/${episodes.join()}`)
       if (episodesStatus === 200) {
         data.episodes = episodesData
       }
