@@ -1,11 +1,14 @@
+require('dotenv').config()
+const { npm_package_name: Title, npm_package_description: Description, PORT } = process.env
+
 export default {
   mode: 'universal',
   head: {
-    title: process.env.npm_package_name || '',
+    title: Title || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: Description || '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -39,6 +42,6 @@ export default {
     }
   },
   server: {
-    port: 8010
+    port: PORT || 8010
   }
 }
