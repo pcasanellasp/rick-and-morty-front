@@ -1,18 +1,16 @@
 <template>
   <div>
     <Filters />
-    Characters
-    <div class="characters">
+    <h1 class="title">
+      Characters
+    </h1>
+    <div class="characters columns is-multiline">
       <Loading v-if="loading" />
-      <div v-for="(character, index) in characters.results" :key="index">
-        <p>
-          <nuxt-link :to="{ name: 'id', params: { id: character.id }}">
-            {{ character.name }}
-          </nuxt-link>
-        </p>
+      <div v-for="(character, index) in characters.results" :key="index" class="column is-one-fifth">
+        <Character :character="character" />
       </div>
-      <Pagination :info="characters.info" />
     </div>
+    <Pagination :info="characters.info" />
   </div>
 </template>
 
@@ -21,12 +19,14 @@ import { mapGetters } from 'vuex'
 import Filters from '../components/commons/Filters'
 import Pagination from '../components/commons/Pagination'
 import Loading from '../components/commons/Loading'
+import Character from '../components/characters/CharacterCard'
 
 export default {
   components: {
     Filters,
     Pagination,
-    Loading
+    Loading,
+    Character
   },
   computed: {
     ...mapGetters({
@@ -39,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.characters {
+  position: relative;
+}
+</style>

@@ -2,6 +2,20 @@
   <div>
     <form @submit.prevent="filterData">
       <input v-model="filters.name" type="text">
+      <select v-model="filters.gender">
+        <option value="male">
+          Male
+        </option>
+        <option value="female">
+          Female
+        </option>
+        <option value="genderless">
+          Genderless
+        </option>
+        <option value="unknown">
+          Unknown
+        </option>
+      </select>
       <button type="submit">
         Filtrar
       </button>
