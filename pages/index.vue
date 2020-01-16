@@ -1,6 +1,7 @@
 <template>
   <div>
     <Filters />
+    Characters
     <div class="characters">
       <Loading v-if="loading" />
       <div v-for="(character, index) in characters.results" :key="index">

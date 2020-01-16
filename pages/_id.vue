@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ character }}
+    {{ character.name }}
     <nuxt-link to="/">
       Home
     </nuxt-link>
