@@ -17,8 +17,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Filters from '../components/Filters'
-import Pagination from '../components/Pagination'
+import Filters from '../components/commons/Filters'
+import Pagination from '../components/commons/Pagination'
 import Loading from '../components/commons/Loading'
 
 export default {
