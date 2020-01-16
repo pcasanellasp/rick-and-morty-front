@@ -43,5 +43,8 @@ export default {
   },
   server: {
     port: PORT || 8010
+  },
+  router: {
+    middleware: ['useragent']
   }
 }
