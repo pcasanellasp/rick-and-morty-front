@@ -6,7 +6,8 @@ export const state = () => ({
     status: null,
     gender: null
   },
-  page: 1
+  page: 1,
+  loading: false
 })
 export const getters = {
   get (state) {
@@ -20,10 +21,14 @@ export const getters = {
   },
   filters (state) {
     return state.filters
+  },
+  loading (state) {
+    return state.loading
   }
 }
 export const actions = {
   async get ({ commit, state }) {
+    commit('loading', true)
     const { data, status } = await this.$axios.get('https://rickandmortyapi.com/api/character', {
       params: {
         ...state.filters,
@@ -34,6 +39,7 @@ export const actions = {
     if (status === 200) {
       commit('get', data)
     }
+    commit('loading', false)
   },
   async show ({ commit }, id) {
     const { data, status } = await this.$axios.get(`https://rickandmortyapi.com/api/character/${id}`)
@@ -71,5 +77,8 @@ export const mutations = {
   },
   setPage (state, page) {
     state.page = page
+  },
+  loading (state, isLoading) {
+    state.loading = isLoading
   }
 }

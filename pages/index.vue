@@ -1,14 +1,17 @@
 <template>
   <div>
     <Filters />
-    <div v-for="(character, index) in characters.results" :key="index">
-      <p>
-        <nuxt-link :to="{ name: 'id', params: { id: character.id }}">
-          {{ character.name }}
-        </nuxt-link>
-      </p>
+    <div class="characters">
+      <Loading v-if="loading" />
+      <div v-for="(character, index) in characters.results" :key="index">
+        <p>
+          <nuxt-link :to="{ name: 'id', params: { id: character.id }}">
+            {{ character.name }}
+          </nuxt-link>
+        </p>
+      </div>
+      <Pagination :info="characters.info" />
     </div>
-    <Pagination :info="characters.info" />
   </div>
 </template>
 
@@ -16,15 +19,18 @@
 import { mapGetters } from 'vuex'
 import Filters from '../components/Filters'
 import Pagination from '../components/Pagination'
+import Loading from '../components/commons/Loading'
 
 export default {
   components: {
     Filters,
-    Pagination
+    Pagination,
+    Loading
   },
   computed: {
     ...mapGetters({
-      characters: 'character/get'
+      characters: 'character/get',
+      loading: 'character/loading'
     })
   },
   async asyncData ({ store }) {
