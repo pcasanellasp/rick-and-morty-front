@@ -16,10 +16,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Filters from '../components/commons/Filters'
-import Pagination from '../components/commons/Pagination'
-import Loading from '../components/commons/Loading'
-import Character from '../components/characters/CharacterCard'
+import Filters from '../../components/commons/Filters'
+import Pagination from '../../components/commons/Pagination'
+import Loading from '../../components/commons/Loading'
+import Character from '../../components/characters/CharacterCard'
 
 export default {
   components: {
