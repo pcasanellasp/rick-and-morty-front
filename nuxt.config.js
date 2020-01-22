@@ -16,6 +16,7 @@ export default {
   },
   loading: { color: 'yellow' },
   css: [
+    './node_modules/blockscss-framework/dist/main.css'
   ],
   plugins: [
   ],
@@ -24,7 +25,6 @@ export default {
   ],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/bulma',
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy'
     // '@nuxtjs/pwa'

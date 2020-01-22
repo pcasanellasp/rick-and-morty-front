@@ -1,32 +1,33 @@
 <template>
-  <div>
-    <section class="hero is-medium is-primary is-bold">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="is-size-1">
-            Characters
-          </h1>
-          <p class="is-size-4">
-            Existence is pain
-          </p>
+  <main>
+    <Header>
+      <template slot="title">
+        <h1>Characters</h1>
+      </template>
+      <template slot="description">
+        <p class="lead">
+          Existence is pain!!
+        </p>
+      </template>
+    </Header>
+    <div class="bg-main">
+      <div class="container-extra">
+        <Filters />
+        <div class="characters grid columns-3">
+          <Loading v-if="loading" />
+          <div v-for="(character, index) in characters.results" :key="index" class="column">
+            <Character :character="character" />
+          </div>
         </div>
+        <Pagination :info="characters.info" />
       </div>
-    </section>
-    <div class="container">
-      <Filters />
-      <div class="characters columns is-multiline">
-        <Loading v-if="loading" />
-        <div v-for="(character, index) in characters.results" :key="index" class="column is-one-fifth">
-          <Character :character="character" />
-        </div>
-      </div>
-      <Pagination :info="characters.info" />
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import Header from '../../components/partials/Header'
 import Filters from '../../components/commons/Filters'
 import Pagination from '../../components/commons/Pagination'
 import Loading from '../../components/commons/Loading'
@@ -34,6 +35,7 @@ import Character from '../../components/characters/CharacterCard'
 
 export default {
   components: {
+    Header,
     Filters,
     Pagination,
     Loading,
@@ -52,6 +54,11 @@ export default {
 </script>
 
 <style>
+.bg-main {
+  background-color: #eeeeee;
+  padding: 2rem 0;
+}
+
 .characters {
   position: relative;
 }

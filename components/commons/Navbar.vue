@@ -1,34 +1,30 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <img src="/images/logo.svg" width="200" height="56">
-        </a>
-        <a
-          @click.prevent="isNavbarOpen = !isNavbarOpen"
-          role="button"
-          class="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
+  <nav class="navbar">
+    <div class="container-extra vh-10">
+      <div class="navbar-left">
+        <a href="#" class="navbar-brand navbar-item">
+          <img src="/images/logo.svg" alt="Logo Pau Casanellas" width="200" height="58">
         </a>
       </div>
-
-      <div id="navbarBasicExample" :class="isNavbarOpen ? 'is-active' : ''" class="navbar-menu">
-        <div class="navbar-end">
-          <nuxt-link :to="{ name: 'characters' }" class="navbar-item">
-            Characters
-          </nuxt-link>
-          <a class="navbar-item" href="https://rickandmortyapi.com/" target="_blank">
-            API
-          </a>
-        </div>
+      <div class="navbar-right navbar-menu desktop">
+        <nuxt-link :to="{ name: 'characters' }" class="navbar-item">
+          Characters
+        </nuxt-link>
+        <a class="navbar-item" href="https://rickandmortyapi.com/" target="_blank">
+          API
+        </a>
       </div>
+      <div class="navbar-right mobile">
+        <a @click.prevent="isNavbarDrawerActive = !isNavbarDrawerActive" href="#" class="navbar-trigger navbar-item">🍔</a>
+      </div>
+    </div>
+    <div :class="isNavbarDrawerActive ? 'is-active' : ''" class="navbar-drawer text-right">
+      <nuxt-link :to="{ name: 'characters' }" class="navbar-item">
+        Characters
+      </nuxt-link>
+      <a class="navbar-item" href="https://rickandmortyapi.com/" target="_blank">
+        API
+      </a>
     </div>
   </nav>
 </template>
@@ -37,14 +33,14 @@
 export default {
   data () {
     return {
-      isNavbarOpen: false
+      isNavbarDrawerActive: false
     }
   }
 }
 </script>
 
 <style>
-.navbar-item img {
-  max-height: none;
+.navbar-brand.navbar-item {
+  padding: 1rem 0;
 }
 </style>

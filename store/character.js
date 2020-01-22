@@ -29,16 +29,20 @@ export const getters = {
 export const actions = {
   async get ({ commit, state }) {
     commit('loading', true)
-    const { data, status } = await this.$axios.get('/api-characters/', {
-      params: {
-        ...state.filters,
-        page: state.page
+    try {
+      const { data, status } = await this.$axios.get('/api-characters/', {
+        params: {
+          ...state.filters,
+          page: state.page
+        }
+      })
+      if (status === 200) {
+        commit('get', data)
       }
-    })
+    } catch (error) {
 
-    if (status === 200) {
-      commit('get', data)
     }
+
     commit('loading', false)
   },
   async show ({ commit }, id) {
