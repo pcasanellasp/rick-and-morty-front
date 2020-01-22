@@ -14,7 +14,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: 'yellow' },
+  loading: { color: '#19b3ca' },
   css: [
     './node_modules/blockscss-framework/dist/main.css'
   ],

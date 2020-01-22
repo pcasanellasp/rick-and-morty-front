@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container-extra vh-10">
       <div class="navbar-left">
-        <a href="#" class="navbar-brand navbar-item">
+        <a href="/" class="navbar-brand navbar-item">
           <img src="/images/logo.svg" alt="Logo Pau Casanellas" width="200" height="58">
         </a>
       </div>
