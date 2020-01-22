@@ -1,16 +1,27 @@
 <template>
   <div>
-    <Filters />
-    <h1 class="title">
-      Characters
-    </h1>
-    <div class="characters columns is-multiline">
-      <Loading v-if="loading" />
-      <div v-for="(character, index) in characters.results" :key="index" class="column is-one-fifth">
-        <Character :character="character" />
+    <section class="hero is-medium is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="is-size-1">
+            Characters
+          </h1>
+          <p class="is-size-4">
+            Existence is pain
+          </p>
+        </div>
       </div>
+    </section>
+    <div class="container">
+      <Filters />
+      <div class="characters columns is-multiline">
+        <Loading v-if="loading" />
+        <div v-for="(character, index) in characters.results" :key="index" class="column is-one-fifth">
+          <Character :character="character" />
+        </div>
+      </div>
+      <Pagination :info="characters.info" />
     </div>
-    <Pagination :info="characters.info" />
   </div>
 </template>
 

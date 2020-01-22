@@ -24,7 +24,7 @@
       </div>
     </div>
     <footer class="card-footer">
-      <nuxt-link :to="{ name: 'id', params: { id: character.id }}" class="card-footer-item is-primary">
+      <nuxt-link :to="{ name: 'characters-id', params: { id: character.id }}" class="card-footer-item is-primary">
         View More
       </nuxt-link>
     </footer>
