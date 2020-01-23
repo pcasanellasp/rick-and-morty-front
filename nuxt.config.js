@@ -16,7 +16,8 @@ export default {
   },
   loading: { color: '#19b3ca' },
   css: [
-    './node_modules/blockscss-framework/dist/main.css'
+    // './node_modules/blockscss-framework/dist/main.css',
+    '@/assets/css/main.css'
   ],
   plugins: [
   ],

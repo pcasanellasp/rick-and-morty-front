@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a @click.prevent="setPage(-1)" v-if="info.prev" class="button is-primary" href="#">Prev</a>
-    <a @click.prevent="setPage(1)" v-if="info.next" class="button is-primary" href="#">Next</a>
+    <a @click.prevent="setPage(-1)" v-if="info.prev" class="btn btn-secondary btn-3d" href="#">Prev</a>
+    <a @click.prevent="setPage(1)" v-if="info.next" class="btn btn-secondary btn-3d" href="#">Next</a>
   </div>
 </template>
 
