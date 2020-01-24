@@ -25,7 +25,6 @@ import Pagination from '../../components/commons/Pagination'
 import Loading from '../../components/commons/Loading'
 
 export default {
-  layout: 'without-navbar',
   components: {
     Filters,
     Pagination,

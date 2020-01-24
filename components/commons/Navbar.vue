@@ -10,6 +10,12 @@
         <nuxt-link :to="{ name: 'characters' }" class="navbar-item">
           Characters
         </nuxt-link>
+        <nuxt-link :to="{ name: 'locations' }" class="navbar-item">
+          Locations
+        </nuxt-link>
+        <nuxt-link :to="{ name: 'episodes' }" class="navbar-item">
+          Episodes
+        </nuxt-link>
         <a class="navbar-item" href="https://rickandmortyapi.com/" target="_blank">
           API
         </a>
@@ -21,6 +27,12 @@
     <div :class="isNavbarDrawerActive ? 'is-active' : ''" class="navbar-drawer text-right">
       <nuxt-link :to="{ name: 'characters' }" class="navbar-item">
         Characters
+      </nuxt-link>
+      <nuxt-link :to="{ name: 'locations' }" class="navbar-item">
+        Locations
+      </nuxt-link>
+      <nuxt-link :to="{ name: 'episodes' }" class="navbar-item">
+        Episodes
       </nuxt-link>
       <a class="navbar-item" href="https://rickandmortyapi.com/" target="_blank">
         API
