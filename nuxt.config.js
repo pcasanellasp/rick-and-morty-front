@@ -35,7 +35,8 @@ export default {
   },
   proxy: {
     '/api-characters/': { target: 'https://rickandmortyapi.com/api/character/', pathRewrite: { '^/api-characters/': '' } },
-    '/api-episodes/': { target: 'https://rickandmortyapi.com/api/episode/', pathRewrite: { '^/api-episodes/': '' } }
+    '/api-episodes/': { target: 'https://rickandmortyapi.com/api/episode/', pathRewrite: { '^/api-episodes/': '' } },
+    '/api-locations/': { target: 'https://rickandmortyapi.com/api/location/', pathRewrite: { '^/api-locations/': '' } }
   },
   build: {
     postcss: {

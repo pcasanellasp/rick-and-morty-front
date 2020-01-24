@@ -14,11 +14,17 @@ export default {
       default: () => {
         return {}
       }
+    },
+    'model': {
+      type: String,
+      default: () => {
+        return ''
+      }
     }
   },
   computed: {
     ...mapGetters({
-      actualPage: 'character/page'
+      actualPage: `pagination/page`
     }),
     page () {
       return this.actualPage
@@ -28,8 +34,8 @@ export default {
     async setPage (increment) {
       let page = this.page
       page += increment
-      await this.$store.dispatch('character/setPage', page)
-      await this.$store.dispatch('character/get')
+      await this.$store.dispatch(`pagination/setPage`, page)
+      await this.$store.dispatch(`${this.model}/get`, page)
     }
   }
 }

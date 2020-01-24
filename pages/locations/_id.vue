@@ -1,8 +1,8 @@
 <template>
   <div class="container-extra">
-    {{ character.name }}
-    <nuxt-link :to="{ name: 'characters' }">
-      Back to characters ->
+    {{ location.name }}
+    <nuxt-link :to="{ name: 'locations' }">
+      Back to locations ->
     </nuxt-link>
   </div>
 </template>
@@ -13,11 +13,11 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      character: 'character/show'
+      location: 'location/show'
     })
   },
   async asyncData ({ store, params }) {
-    await store.dispatch('character/show', params.id)
+    await store.dispatch('location/show', params.id)
   }
 }
 </script>

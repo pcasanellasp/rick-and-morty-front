@@ -1,25 +1,18 @@
 <template>
   <main>
-    <Header>
-      <template slot="title">
-        <h1>Characters</h1>
-      </template>
-      <template slot="description">
-        <p class="h3">
-          Existence is pain!!
-        </p>
-      </template>
-    </Header>
     <div class="bg-main">
       <div class="container-extra">
         <Filters />
         <div class="characters grid columns-4">
           <Loading v-if="loading" />
-          <div v-for="(character, index) in characters.results" :key="index" class="column">
-            <Character :character="character" />
+          <div v-for="(location, index) in locations.results" :key="index" class="column">
+            {{ location.name }}
+            <nuxt-link :to="{ name: 'locations-id', params: { id: location.id }}" class="">
+              View More
+            </nuxt-link>
           </div>
         </div>
-        <Pagination :info="characters.info" model="character" />
+        <Pagination :info="locations.info" model="location" />
       </div>
     </div>
   </main>
@@ -27,28 +20,25 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Header from '../../components/partials/Header'
 import Filters from '../../components/commons/Filters'
 import Pagination from '../../components/commons/Pagination'
 import Loading from '../../components/commons/Loading'
-import Character from '../../components/characters/CharacterCard'
 
 export default {
+  layout: 'without-navbar',
   components: {
-    Header,
     Filters,
     Pagination,
-    Loading,
-    Character
+    Loading
   },
   computed: {
     ...mapGetters({
-      characters: 'character/get',
-      loading: 'character/loading'
+      locations: 'location/get',
+      loading: 'location/loading'
     })
   },
   async asyncData ({ store }) {
-    await store.dispatch('character/get')
+    await store.dispatch('location/get')
   }
 }
 </script>
@@ -59,7 +49,7 @@ export default {
   padding: 2rem 0;
 }
 
-.characters {
+.locations {
   position: relative;
 }
 </style>

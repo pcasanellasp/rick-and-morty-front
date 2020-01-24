@@ -1,19 +1,19 @@
 export const state = () => ({
-  characters: [],
-  character: null,
+  locations: [],
+  location: null,
   filters: {
     name: null,
-    status: null,
-    gender: null
+    type: null,
+    dimension: null
   },
   loading: false
 })
 export const getters = {
   get (state) {
-    return state.characters
+    return state.locations
   },
   show (state) {
-    return state.character
+    return state.location
   },
   filters (state) {
     return state.filters
@@ -26,7 +26,7 @@ export const actions = {
   async get ({ commit, state }, page) {
     commit('loading', true)
     try {
-      const { data, status } = await this.$axios.get('/api-characters/', {
+      const { data, status } = await this.$axios.get('/api-locations/', {
         params: {
           ...state.filters,
           page
@@ -42,17 +42,17 @@ export const actions = {
     commit('loading', false)
   },
   async show ({ commit }, id) {
-    const { data, status } = await this.$axios.get(`/api-characters/${id}`)
+    const { data, status } = await this.$axios.get(`/api-locations/${id}`)
 
     if (status === 200) {
-      const episodes = []
-      for (const episode of data.episode) {
-        episodes.push(episode.replace('https://rickandmortyapi.com/api/episode/', ''))
+      const residents = []
+      for (const resident of data.residents) {
+        residents.push(resident.replace('https://rickandmortyapi.com/api/character/', ''))
       }
 
-      const { data: episodesData, status: episodesStatus } = await this.$axios.get(`/api-episodes/${episodes.join()}`)
-      if (episodesStatus === 200) {
-        data.episodes = episodesData
+      const { data: residentsData, status: residentsStatus } = await this.$axios.get(`/api-characters/${residents.join()}`)
+      if (residentsStatus === 200) {
+        data.resident = residentsData
       }
 
       commit('show', data)
@@ -64,10 +64,10 @@ export const actions = {
 }
 export const mutations = {
   get (state, data) {
-    state.characters = data
+    state.locations = data
   },
   show (state, data) {
-    state.character = data
+    state.location = data
   },
   setFilters (state, filters) {
     state.filters = { ...filters }
