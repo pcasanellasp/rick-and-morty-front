@@ -4,7 +4,7 @@ export const state = () => ({
   filters: {
     name: null,
     status: null,
-    gender: null
+    gender: undefined
   },
   loading: false
 })

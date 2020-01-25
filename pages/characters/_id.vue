@@ -1,6 +1,6 @@
 <template>
   <div class="container-extra">
-    {{ character.name }}
+    {{ character }}
     <nuxt-link :to="{ name: 'characters' }">
       Back to characters ->
     </nuxt-link>

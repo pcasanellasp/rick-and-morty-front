@@ -1,6 +1,6 @@
 <template>
   <div class="container-extra">
-    {{ episode.name }}
+    {{ episode }}
     <nuxt-link :to="{ name: 'episodes' }">
       Back to episodes ->
     </nuxt-link>

@@ -12,13 +12,13 @@
     </Header>
     <div class="bg-main">
       <div class="container-extra">
-        <Filters />
         <div class="characters grid columns-4">
           <Loading v-if="loading" />
           <div v-for="(character, index) in characters.results" :key="index" class="column">
             <Character :character="character" />
           </div>
         </div>
+        <Filters />
         <Pagination :info="characters.info" model="character" />
       </div>
     </div>

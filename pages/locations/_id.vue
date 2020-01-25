@@ -1,6 +1,6 @@
 <template>
   <div class="container-extra">
-    {{ location.name }}
+    {{ location }}
     <nuxt-link :to="{ name: 'locations' }">
       Back to locations ->
     </nuxt-link>

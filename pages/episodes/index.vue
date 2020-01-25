@@ -1,5 +1,10 @@
 <template>
   <main>
+    <Header>
+      <template slot="title">
+        <h1>Episodes</h1>
+      </template>
+    </Header>
     <div class="bg-main">
       <div class="container-extra">
         <Filters />
@@ -23,12 +28,14 @@ import { mapGetters } from 'vuex'
 import Filters from '../../components/commons/Filters'
 import Pagination from '../../components/commons/Pagination'
 import Loading from '../../components/commons/Loading'
+import Header from '../../components/partials/Header'
 
 export default {
   components: {
     Filters,
     Pagination,
-    Loading
+    Loading,
+    Header
   },
   computed: {
     ...mapGetters({

@@ -3,6 +3,9 @@
     <form @submit.prevent="filterData">
       <input v-model="filters.name" type="text">
       <select v-model="filters.gender">
+        <option>
+          All
+        </option>
         <option value="male">
           Male
         </option>

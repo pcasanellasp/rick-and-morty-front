@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <a @click.prevent="setPage(-1)" v-if="info.prev" class="btn btn-secondary btn-3d" href="#">Prev</a>
-    <a @click.prevent="setPage(1)" v-if="info.next" class="btn btn-secondary btn-3d" href="#">Next</a>
+  <div class="pagination">
+    <a @click.prevent="setPage(-1)" v-if="info.prev" class="btn btn-secondary" href="#">Prev</a>
+    <a @click.prevent="setPage(1)" v-if="info.next" class="btn btn-secondary" href="#">Next</a>
   </div>
 </template>
 
@@ -40,3 +40,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.pagination {
+  padding: 1rem 0;
+}
+</style>
